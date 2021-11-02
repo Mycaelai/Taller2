@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="16" tileheight="16" infinite="1" nextlayerid="3" nextobjectid="3">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="16" tileheight="16" infinite="1" nextlayerid="3" nextobjectid="5">
  <tileset firstgid="1" source="Mundo.tsx"/>
  <layer id="1" name="suelo" width="100" height="100">
   <data encoding="csv">
@@ -78,6 +78,8 @@
   </data>
  </layer>
  <objectgroup id="2" name="colisiones">
-  <object id="2" x="-256" y="-256" width="512" height="512"/>
+  <object id="4" x="-233.5" y="-231">
+   <polyline points="0,0 463.5,-0.5 464.5,461 1.5,462.5 0.5,-10"/>
+  </object>
  </objectgroup>
 </map>
