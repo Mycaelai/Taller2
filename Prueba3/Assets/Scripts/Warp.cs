@@ -13,6 +13,8 @@ public class Warp : MonoBehaviour
     bool isFadeIn = false;
     float alpha = 0;
     float fadeTime = 1f;
+
+    GameObject area;
     // Start is called before the first frame update
 
     void Awake()
@@ -23,10 +25,14 @@ public class Warp : MonoBehaviour
         transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
 
         Assert.IsNotNull(targetMap);
+
+        area = GameObject.FindGameObjectWithTag("Area");
     }
 
     IEnumerator OnTriggerEnter2D(Collider2D col)
     {
+        col.GetComponent<Animator>().enabled = false;
+        col.GetComponent<Player>().enabled = false;
         FadeIn();
         yield return new WaitForSeconds(fadeTime);
 
@@ -35,6 +41,10 @@ public class Warp : MonoBehaviour
         //Camera.main.GetComponent<MainCamera>().SetBound(targetMap);
 
         FadeOut();
+        col.GetComponent<Animator>().enabled = true;
+        col.GetComponent<Player>().enabled = true;
+
+        StartCoroutine(area.GetComponent<Area>().ShowArea(targetMap.name));
     }
 
     void OnGUI()

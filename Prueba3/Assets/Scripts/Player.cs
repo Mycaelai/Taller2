@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     Rigidbody2D rb2d;
     Vector2 mov;
 
+    CircleCollider2D attackCollider;
+
     public GameObject InitialMap;
     // Start is called before the first frame update
 
@@ -22,6 +24,9 @@ public class Player : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+
+        attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
+        attackCollider.enabled = false;
 
         //Camera.main.GetComponent<MainCamera>().SetBound(InitialMap);
     }
@@ -44,8 +49,23 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("walking", false);
         }
+        AnimatorStateInfo stateInfo= anim.GetCurrentAnimatorStateInfo(0);
+        bool attaking = stateInfo.IsName("Player_Attack");
 
-        
+        if (Input.GetKeyDown("space"))
+        {
+            anim.SetTrigger("attaking");
+        }
+
+        if (mov != Vector2.zero) attackCollider.offset = new Vector2(mov.x/4, mov.y/2);
+
+        if (attaking)
+        {
+            float playbackTime = stateInfo.normalizedTime;
+            print(playbackTime);
+            if (playbackTime > 0.33 && playbackTime < 0.66) attackCollider.enabled = true;
+            else attackCollider.enabled = false;
+        }
     }
 
     void FixedUpdate()
