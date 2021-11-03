@@ -719,6 +719,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1853415542}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &335881513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 335881514}
+  - component: {fileID: 335881515}
+  m_Layer: 0
+  m_Name: Attack
+  m_TagString: Attack
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &335881514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335881513}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.01, y: -0.1, z: -957.19}
+  m_LocalScale: {x: 0.9671264, y: 0.99633753, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1917183986}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &335881515
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335881513}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &365221540 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4968574288074166048, guid: 9e950d785fc446e47afff9a172299d3f,
@@ -3232,7 +3279,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -214.17, y: 33, z: 0}
   m_LocalScale: {x: 1.033991, y: 1.0036759, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 335881514}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3250,6 +3298,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   InitialMap: {fileID: 639280332}
+  slashPrefab: {fileID: 299625734780416018, guid: 2eaf22befbd396e4086078466fbaa337,
+    type: 3}
 --- !u!95 &1917183988
 Animator:
   serializedVersion: 3
